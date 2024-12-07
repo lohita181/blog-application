@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/layout.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="center">
+        <h1 class="text">WELCOME TO BLOGS APPLICATION</h1>
+        <button class="btn create-btn" onclick="window.location.href='/form'">Create a new post</button>
+    </div>
+    <div class="gallery">
+        <% if(locals.images.length> 0){ %>
+            <% images.forEach((image) => { %>
+            <div class="gallery-item">
+                <img src="<%= image.path %>" alt="Uploaded Image" height="300px" width="500px">
+                <div class="caption" id="caption-<%= image.path %>"><strong>Caption : </strong>  <%= image.caption %></div> <!-- Display the caption -->
+                
+                <button class="btn sm" onclick="showEditForm('<%=image.path%>','<%=image.caption%>')">Edit</button>
+                
+                <button class="btn sm" onclick="deleteImage('<%=image.path%>')">Delete</button>
+
+                <div id="edit-form-<%= image.path%>" class="edit-form" style="display: none;">
+                    <input type="text" id="edit-caption-<%=image.path%>" value="<%= image.caption %>">
+                    <button class="btn sm" onclick="editImage('<%=image.path%>')">Save</button>
+                </div>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <p>No blogs made yet</p>
+        <% } %>
+    </div>  
+    <script>
+        function showEditForm(imagePath, oldCaption) {
+
+            document.querySelectorAll('.edit-form').forEach(element => {
+                element.style.display = "none"
+            });
+
+            const editForm = document.getElementById(`edit-form-${imagePath}`);
+            editForm.style.display = "block";
+            
+        }
+
+        function editImage(imagePath){
+            const newCaption = document.getElementById(`edit-caption-${imagePath}`).value;
+            fetch('/edit',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({imagePath,newCaption})
+            })
+            .then(() => {
+                    location.reload();
+            })
+        }
+        function deleteImage(imagePath){
+            fetch('/delete',{
+                method: 'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({imagePath})
+            })
+            .then(() => {
+                location.reload();
+            })
+        }
+    </script>
+</body>
+</html>

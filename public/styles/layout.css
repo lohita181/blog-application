@@ -1,0 +1,104 @@
+* ,::after ,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #EAE6F2;
+    height: 100vh;
+    
+}
+.btn{
+    background-color: #6F2C91;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease;
+}
+.btn:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+}
+.create-btn{
+    text-align: center;
+    margin: 0 auto;
+}
+.text{
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 5px;
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;  /* Similar script font */
+    font-size: 50px;
+    color: #5B4B8A;  /* Main purple text color */
+    position: relative;
+    text-shadow: 
+        -1px 1px 0 #3E2B61,   /* Darker purple shadow for the 3D effect */
+        1px 1px 0 #3E2B61, 
+        2px 2px 0 #3E2B61, 
+        3px 3px 0 #3E2B61, 
+        4px 4px 0 #3E2B61, 
+        5px 5px 0 #3E2B61, 
+        6px 6px 0 #3E2B61, 
+        7px 7px 0 #3E2B61, 
+        8px 8px 15px rgba(62, 43, 97, 0.7); /* Softer dark purple shadow */
+}
+
+h1::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #A77BCA;  /* Lighter purple glow effect */
+    z-index: -1;
+    text-shadow: 
+        -1px 0 5px rgba(167, 123, 202, 0.5),  /* Purple glowing effect */
+        1px 0 5px rgba(167, 123, 202, 0.5),
+        0 1px 5px rgba(167, 123, 202, 0.5),
+        0 -1px 5px rgba(167, 123, 202, 0.5);
+}
+
+.gallery{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.gallery-item{
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.sm{
+    padding: 5px 10px;
+    align-self: flex-end;
+    margin: 5px;
+}
+
+@media screen and (max-width:634px) {
+    img{
+        height:200px;
+        width : 350px;
+    }
+
+    .gallery{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,64 @@
+* ,::after ,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.btn{
+    background-color: #6F2C91;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+.btn:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+}
+.create-btn{
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* input[type="file"]{
+    display: none;
+} */
+body{
+    background-color: #EAE6F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    gap: 50px;
+}
+
+.form{
+    display: flex;
+    height: 60%;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+textarea{
+    width: 100%;
+    padding: 5px;
+}
+.final-btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+}

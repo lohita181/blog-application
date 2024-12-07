@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="styles/form.css">
+<body>
+    <h1>Create your Blog post</h1>
+    <form method="POST" action="/create" class="form" enctype="multipart/form-data" >
+        <h3><label for="image" >Upload Image</label></h3>
+        <input type="file" name="image" class="btn">
+    
+        <h3><label for="caption">Enter your caption</label></h3>
+        <textarea id="caption" name="caption" rows="5" placeholder="Write your caption here..."></textarea><br> 
+        <div class="final-btns">
+            <button type="submit" class="btn">Submit</button>
+            <button type="reset" class="btn">Cancel</button>
+        </div> 
+    </form>
+</body>
